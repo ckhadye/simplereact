@@ -1,9 +1,17 @@
 import logo from './logo.svg';
+import {Navbar, NavbarBrand} from 'reactstrap'; 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+
+    <Navbar dark color="primary" expand="md">
+      <div className="container"> 
+      <NavbarBrand color="light" href="/">Ristorante Con Fusion</NavbarBrand>
+      </div>
+    </Navbar>
+    
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
