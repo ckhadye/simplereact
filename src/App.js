@@ -1,6 +1,7 @@
 import logo from './logo.svg';
-import {Navbar, NavbarBrand} from 'reactstrap'; 
+import {Media, Navbar, NavbarBrand} from 'reactstrap';
 import './App.css';
+import Menu from './components/MenuComponent';
 
 function App() {
   return (
@@ -12,7 +13,11 @@ function App() {
       </div>
     </Navbar>
     
-      <header className="App-header">
+    <Media tag="ul">
+      <Menu />
+    </Media>
+    
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -25,7 +30,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }
