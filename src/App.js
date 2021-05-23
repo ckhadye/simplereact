@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import {Media, Navbar, NavbarBrand} from 'reactstrap';
 import './App.css';
 import Menu from './components/MenuComponent';
+import {DISHES} from './dishes';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
     </Navbar>
     
     <Media tag="ul">
-      <Menu />
+      <Menu dishes={DISHES}/>
     </Media>
     
       {/* <header className="App-header">
