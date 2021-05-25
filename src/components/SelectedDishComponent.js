@@ -19,7 +19,7 @@ renderComments() {
               {comment.comment}
           </div>
           <div className="row">
-              -- {comment.author}, {formattedDate} {}
+              -- {comment.author}, {formattedDate}
           </div>
         </div>
           )
@@ -47,9 +47,9 @@ render() {
         </div>
         <div className="col-sm-12 col-md-6">
                {this.renderComments()}
-               {/* <li>Dispyaing comments</li> */}
         </div>
-    </Row>);
+    </Row>
+    );
     }
     return (<div></div>);
 }
