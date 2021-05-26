@@ -1,16 +1,31 @@
-import React,{Component} from 'react';
 import {Media,Row, Col, Card, CardImg, CardImgOverlay, CardTitle} from 'reactstrap';
 
-class SelectedDish extends React.Component {
-
-constructor(props) {
-    console.log('Inside constructor of SelectedDish');
-    super(props);
+function SelectedDish(props){
+    if(props.dish != null) {
+    return (
+    <Row className="mt-5">
+        <div className="col-sm-12 col-md-6">
+            <Card>
+                <CardImg src={props.dish.image}  alt={props.dish.description} />
+                <CardImgOverlay>
+                    <CardTitle tag="h5">
+                        {props.dish.name}
+                    </CardTitle>
+                </CardImgOverlay>
+            </Card>
+        </div>
+        <div className="col-sm-12 col-md-6">
+            <RenderComments dish={props.dish} />
+        </div>
+    </Row>
+    );
+    }
+    return (<div></div>);
 }
 
-renderComments() {
-    if(this.props.dish.comments != null) {
-        const comments = this.props.dish.comments.map(comment => {
+function RenderComments(props) {
+    if(props.dish.comments != null) {
+        const comments = props.dish.comments.map(comment => {
             let commentDate = new Date(comment.date);
             let formattedDate = commentDate.toLocaleString('en-US', {month:'short', day: 'numeric', year: 'numeric'})
         return (
@@ -24,34 +39,8 @@ renderComments() {
         </div>
           )
         });
-
         return <div>{comments}</div>
     }
-}
 
-render() {
-    if(this.props.dish != null) {
-        console.log('Inside render method of Selected Dish',this.props.dish);
-    return (
-    <Row className="mt-5">
-        <div className="col-sm-12 col-md-6">
-            <Card>
-                <CardImg src={this.props.dish.image}  alt={this.props.dish.description} />
-                <CardImgOverlay>
-                    <CardTitle tag="h5">
-                        {this.props.dish.name}
-                    </CardTitle>
-                </CardImgOverlay>
-                {/* <Media width="100%" object src={this.props.dish.image} alt={this.props.dish.description}></Media> */}
-            </Card>
-        </div>
-        <div className="col-sm-12 col-md-6">
-               {this.renderComments()}
-        </div>
-    </Row>
-    );
-    }
-    return (<div></div>);
-}
 }
 export default SelectedDish;
