@@ -1,8 +1,11 @@
-import MainComponent from './components/MainComponent';
+import { BrowserRouter } from 'react-router-dom';
+import Main from './components/MainComponent';
 
 function App() {
   return (
-    <MainComponent />
+    <BrowserRouter>
+      <Main />
+    </BrowserRouter>
   );
 }
 
